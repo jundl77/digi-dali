@@ -2,11 +2,13 @@
 
 Digi Dali stands for Digital Dali. It is a Lego robot with a laser that can englave (laser engrave) your images onto a piece of wood. 
 
-Website:
-Version 1:
-Version 2:
+Website: https://www.digidali.co/
 
-I built Digi Dali in 2014, beginning in my senior hight school year and ending in my freshman college year. I have not touched Digi Dali since, so please do not expect too much.
+Version 2: https://www.youtube.com/watch?v=Rzt6_1OoRhA
+
+Version 1: https://www.youtube.com/watch?v=5o0GrUTllkw
+
+I built Digi Dali in 2014, beginning in my senior high school year and ending in my freshman college year. I have not touched Digi Dali since, so please do not expect too much.
 
 ## Story
 This repository is mostly for me. I lost the original code base a while ago, and am now only left with the minified, production version of the code. Thus for safeguarding purposes, I uploaded the code here, to GitHub, but with no intention of maintaining or coming back to it.
