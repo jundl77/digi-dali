@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="create, digi, dali, digi dali, laser engraving, englaving, caricature, digital art, art"
+          name="keywords">
+    <meta content="Create your own englaving!" name="description">
+    <meta content="Create an Englaving" name="title">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="css/cssAnimations.min.css"/>
+    <link type="text/css" rel="stylesheet" href="css/create/create.min.css"/>
+    <link rel="stylesheet" type="text/css" media="screen and (min-width:768px) and (max-width:960px)"
+          href="css/create/create_960.min.css">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width:480px) and (max-width:767px)"
+          href="css/create/create_767.min.css">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width:320px) and (max-width:479px)"
+          href="css/create/create_479.min.css">
+    <link rel="stylesheet" type="text/css" media="screen and (max-width:319px)"
+          href="css/create/create_319.min.css">
+    <script type="text/javascript" src="pictureanalysis/pictureAnalysis.js"></script>
+    <script type="text/javascript" src="pictureanalysis/edgeDetection.js"></script>
+    <title>Create an Englaving</title>
+</head>
+<body class="unselectable" id="body">
+<div id="wrapper">
+<div id="content_wrapper">
+<div id="content_inner_wrapper">
+<div id="topBar">
+    <a href="index.html">
+        <div id="topBarLogo">
+            <img src="images/logo.png">
+        </div>
+    </a>
+
+    <div id="topBarButtons">
+        <a href="index.html">
+            <div id="logoMobile">
+                <img src="images/logo.png">
+            </div>
+        </a>
+        <a href="index.html">
+            <div id="menuItem1"><p>Home</p></div>
+        </a>
+        <a href="gettingstarted.html">
+            <div id="menuItem2"><p>Getting Started</p></div>
+        </a>
+        <a href="create.html">
+            <div id="menuItem3"><p>Create</p></div>
+        </a>
+        <a href="about.html">
+            <div id="menuItem4"><p>About</p></div>
+        </a>
+    </div>
+</div>
+<div id="introDiv" class="">
+    <div id="titleDiv">
+        <h2 id="title">Create an Englaving</h2>
+    </div>
+    <p id="introP">
+        By pressing the Englave button, you can send an image of yours to a Lego robot that carves it as a line drawing
+        with its laser beam into a 10x10 cm wooden board. For a cost of 10 Euros (or the equivalent in your currency)
+        you receive your englaved wood in the mail (incl. shipping).
+    </p>
+
+    <p id="disableP">I am terribly sorry, your screen seems to be too small to englave anything.</p>
+    <img src="images/Create/createDisabled.png" id="disabledImg"><img>
+</div>
+<div id="canvasBlock" class="stretchRight">
+    <div id="input">
+        <div id="outer">
+            <div id="middle">
+                <div id="inner">
+                    <a id="edgeCollapse" data-toggle="collapse" href="#edgeCollapseDiv" aria-expanded="false"
+                       aria-controls="edgeCollapseDiv">
+                        <div id="edgeDetection">Edge Detection</div>
+                        <div id="edgeDetectionLine"></div>
+                    </a>
+
+                    <div class="collapse" id="edgeCollapseDiv">
+                        <div class="well" id="edgeWell">
+                            <div id="edgeQuestionMarks">
+                                <a id="kernelQ" tabindex="0" title="Coarse Filter" data-placement="right"
+                                   data-toggle="popover" data-trigger="hover" data-content="Before the edge detection
+                                   happens, something has to filter the image to decide what pixels the edge
+                                   detection gets. This slider sort of does the rough tuning for that filtering.">
+                                    <img src="images/Create/questionMark.png">
+                                </a>
+                                <a id="sigmaQ" tabindex="0" title="Fine Filter" data-placement="right"
+                                   data-toggle="popover" data-trigger="hover" data-content="Like mentioned above, something
+                                   has to filter the image to decide what pixels are sent to the edge detection. This slider
+                                   does the fine tuning for that filtering.">
+                                    <img src="images/Create/questionMark.png">
+                                </a>
+                                <a id="t1Q" tabindex="0" title="Big Engine" data-placement="right"
+                                   data-toggle="popover" data-trigger="hover" data-content="The edge detection is
+                                   run twice over the image. One time to get a rough approximation and a second time to
+                                   get the final result. This slider controls the first pass of the edge detection.">
+                                    <img src="images/Create/questionMark.png">
+                                </a>
+                                <a id="t2Q" tabindex="0" title="Small Engine" data-placement="right"
+                                   data-toggle="popover" data-trigger="hover" data-content="As mentioned above,
+                                   there are two passes the edge detection does over the image. One time to get a rough
+                                   approximation and a second time to get the final result. This slider controls the
+                                   second pass of the edge detection.">
+                                    <img src="images/Create/questionMark.png">
+                                </a>
+                            </div>
+                            <div id="edgeButtons">
+                                <div id="kernel">
+                                    <label for="kernelTxt">Coarse Filter</label>
+                                    <input type="text" name="kernelTxt" id="kernelTxt" class="inputTxt">
+
+                                    <div id="kernelSlider" class="range-slider round disabled" data-slider
+                                         data-options="start: 1; end: 20;">
+                                        <span class="range-slider-handle" role="slider" tabindex="0"></span>
+                                        <span class="range-slider-active-segment"></span>
+                                        <input type="hidden">
+                                    </div>
+                                </div>
+                                <div id="sigma">
+                                    <label for="sigmaTxt">Fine Filter</label>
+                                    <input type="text" name="sigmaTxt" id="sigmaTxt" class="inputTxt">
+
+                                    <div id="sigmaSlider" class="range-slider round disabled" data-slider
+                                         data-options="start: 1; end: 20; step: 0.1;">
+                                        <span class="range-slider-handle" role="slider" tabindex="0"></span>
+                                        <span class="range-slider-active-segment"></span>
+                                        <input type="hidden">
+                                    </div>
+                                </div>
+                                <div id="t1">
+                                    <label for="t1Txt">Big Engine</label>
+                                    <input type="text" name="t1Txt" id="t1Txt" class="inputTxt">
+
+                                    <div id="t1Slider" class="range-slider round disabled" data-slider
+                                         data-options="start: 1; end: 200; step: 1;">
+                                        <span class="range-slider-handle" role="slider" tabindex="0"></span>
+                                        <span class="range-slider-active-segment"></span>
+                                        <input type="hidden">
+                                    </div>
+                                </div>
+                                <div id="t2">
+                                    <label for="t2Txt">Small Engine</label>
+                                    <input type="text" name="t2Txt" id="t2Txt" class="inputTxt">
+
+                                    <div id="t2Slider" class="range-slider round disabled" data-slider
+                                         data-options="start: 1; end: 200; step: 1;">
+                                        <span class="range-slider-handle" role="slider" tabindex="0"></span>
+                                        <span class="range-slider-active-segment"></span>
+                                        <input type="hidden">
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="edgeButtonLine"></div>
+                            <div id="edgeButton">
+                                <div id="edgeButtonText">Find Edges</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a id="vectorCollapse" data-toggle="collapse" href="#vectorCollapseDiv" aria-expanded="false"
+                       aria-controls="vectorCollapseDiv">
+                        <div id="vectorization">Vectorization</div>
+                        <div id="vectorizationLine"></div>
+                    </a>
+
+                    <div class="collapse" id="vectorCollapseDiv">
+                        <div class="well" id="vectorWell">
+                            <div id="vectorQuestionMarks">
+                                <a id="vectorSlopeQ" tabindex="0" title="Big Knob" data-placement="right"
+                                   data-toggle="popover" data-trigger="hover" data-content="The big knob controls whether
+                                   vectors are prolonged or whether they are cut off and turned into a new one.">
+                                    <img src="images/Create/questionMark.png">
+                                </a>
+                                <a id="vectorRadiusQ" tabindex="0" title="Little Knob" data-placement="right"
+                                   data-toggle="popover" data-trigger="hover" data-content="The little knob controls the
+                                   length of vectors.">
+                                    <img src="images/Create/questionMark.png">
+                                </a>
+                                <a id="endpointsQ" tabindex="0" title="Show Vectors" data-placement="right"
+                                   data-toggle="popover" data-trigger="hover" data-content="If this check box is
+                                       checked, vectors are drawn with their endpoints highlighted. Otherwise the
+                                       vectors are drawn the way they will appear on the wood.">
+                                    <img src="images/Create/questionMark.png">
+                                </a>
+                            </div>
+                            <div id="vectorButtons">
+                                <div id="vectorSlope">
+                                    <label for="vSlopeTxt">Big Knob:</label>
+                                    <input type="text" name="vSlopeTxt" id="vSlopeTxt" class="inputTxt">
+
+                                    <div id="vSlopeSlider" class="range-slider round disabled" data-slider
+                                         data-options="start: 0; end: 5; step: 0.1;">
+                                        <span class="range-slider-handle" role="slider" tabindex="0"></span>
+                                        <span class="range-slider-active-segment"></span>
+                                        <input type="hidden">
+                                    </div>
+                                </div>
+                                <div id="vectorRadius">
+                                    <label for="vRadiusTxt">Little Knob:</label>
+                                    <input type="text" name="vRadiusTxt" id="vRadiusTxt" class="inputTxt">
+
+                                    <div id="vRadiusSlider" class="range-slider round disabled" data-slider
+                                         data-options="start: 2;end: 20; step: 1;">
+                                        <span class="range-slider-handle" role="slider" tabindex="0"></span>
+                                        <span class="range-slider-active-segment"></span>
+                                        <input type="hidden">
+                                    </div>
+                                </div>
+                                <div id="endpoints">
+                                    <label for="vEndPtCheckBox">Show Vectors:</label>
+                                    <input type="checkbox" name="vectorEndPoints" id="vEndPtCheckBox" checked>
+                                </div>
+                            </div>
+                            <div id="vectorButtonLine"></div>
+                            <div id="vectorButton">
+                                <div id="vectorButtonText">Vectorize</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <canvas id="pictureBox" class="dropzone-previews">
+        <video autoplay="true" id="videoElement"></video>
+    </canvas>
+    <div id="actionButtons">
+        <div id="selfieButton"><img id="selfieButtonImg" src="images/Create/selfie-button-normal.png"></div>
+        <div id="buttonLine"></div>
+        <div id="downloadDiv">
+            <a id="downloadPopover" tabindex="0" title="" data-placement="left" data-toggle="popover"
+               data-trigger="manual" data-content="You must apply the edge detection to an image before you can download it.">
+                <div id="downloadButton"><img id="downloadButtonImg" src="images/Create/download-disabled.png"></div>
+            </a>
+        </div>
+        <div id="laserDiv">
+            <a id="laserPopover" tabindex="0" title="" data-placement="left" data-toggle="popover"
+               data-trigger="manual" data-content="You must vectorize an image before you can englave it.">
+                <div id="laserButton"><img id="laserButtonImg" src="images/Create/laser-disabled.png"></div>
+            </a>
+        </div>
+    </div>
+    <div id="statusDiv">
+        <div id="statusP"></div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer_wrapper">
+    <div id="footer_inner_wrapper">
+        <div id="bottomSection">
+            <div id="bottomTransition"><img src="images/bottomTransiton.png"></div>
+            <div id="bottomBar">
+                <div id="license">
+                    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+                        <img alt="Creative Commons License" style="border-width:0"
+                             src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
+                    </a><br>
+
+                    <div id="licenseText">
+                        This site is licensed under a <a rel="license"
+                                                         href="http://creativecommons.org/licenses/by/4.0/">
+                        Creative Commons Attribution 4.0 International License</a>.
+                    </div>
+                </div>
+                <div id="contactDiv">
+                    <a href="contact.html">
+                        <div id="contactButton"><p>Contact</p></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="downloadModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+    <div id="downloadModalTop">
+        <h2 id="downloadModalTitle">Download</h2>
+
+        <p id="downloadModalInfo">
+            Download what you currently see. Please consider donating in order to help me cover the server cost and keep
+            this site up and running!
+        </p>
+    </div>
+    <div id="downloadModalBody">
+        <input type="text" name="downloadFileName" placeholder="Name of File" id="downloadFileNameTxt">
+
+        <div id="downloadButtons">
+            <div id="downloadModalButtonFree" class="downloadModalButton">
+                <div id="downloadModalButtonFreeTxt" class="downloadModalButtonText">Download for Free</div>
+            </div>
+            <div id="downloadModalButtonCost1" class="downloadModalButton">
+                <div id="downloadModalButtonCost1Txt" class="downloadModalButtonText">Download for 50¢*</div>
+            </div>
+            <div id="downloadModalButtonCost2" class="downloadModalButton">
+                <div id="downloadModalButtonCost2Text" class="downloadModalButtonText">Download for 1€</div>
+            </div>
+        </div>
+        <div>
+            <p id="downloadFormInfo"></p>
+        </div>
+    </div>
+    <div id="downloadModalFooter">
+        <div id="downloadModalFooterText">
+            *Unfortunately 50 cents is the lowest amount the payment software I am using allows me to charge.
+        </div>
+    </div>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<a id="downloadModalButtonLink" download="YourFileName.png"></a>
+
+<div id="laserModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+    <div id="laserModalTop">
+        <h2 id="laserModalTitle">1 Englaving</h2>
+
+        <p id="laserUploadInfo">
+            For a cost of 10 Euros (or the equivalent amount in your currency) you can carve your vectorized image into
+            a 10x10cm wooden board using the laser beam of a Lego robot! The price includes shipping.
+            </br></br>
+            In case you are interested, please fill out the information below so that I can mail the engraving to you.
+            Oh and don't worry, I will not sell your data to Big Brother.
+        </p>
+    </div>
+    <div id="laserModalBody">
+        <div id="laserModalInputForm">
+            <div id="names">
+                <input type="text" name="downloadFileName" placeholder="First Name"
+                       id="laserFormFirstNameInput" class="inputTxt modalUploadTextBox">
+
+                <input type="text" name="downloadFileName" placeholder="Last Name"
+                       id="laserFormLastNameInput" class="inputTxt modalUploadTextBox">
+            </div>
+            <div>
+                <input type="text" name="downloadFileName" placeholder="Address"
+                       id="laserFormAddressInput" class="inputTxt modalUploadTextBox">
+            </div>
+            <div>
+                <input type="text" name="downloadFileName" placeholder="City"
+                       id="laserFormCityInput" class="inputTxt modalUploadTextBox">
+
+                <input type="text" name="downloadFileName" placeholder="Zip Code"
+                       id="laserFormZipCodeInput" class="inputTxt modalUploadTextBox">
+            </div>
+            <div>
+                <input type="text" name="downloadFileName" placeholder="State"
+                       id="laserFormStateInput" class="inputTxt modalUploadTextBox">
+
+                <input type="text" name="downloadFileName" placeholder="Country"
+                       id="laserFormCountryInput" class="inputTxt modalUploadTextBox">
+            </div>
+            <div>
+                <input type="text" name="downloadFileName" placeholder="E-Mail"
+                       id="laserFormEmailInput" class="inputTxt modalUploadTextBox">
+            </div>
+        </div>
+        <div id="laserModalActionButtons">
+            <div id="laserModalStripePay">
+                <div id="stripeCheckoutButton">
+                    <div id="stripeCheckoutButtonText">Pay with Credit Card</div>
+                </div>
+                <div id="laserModalOrDiv">
+                    <p> or</p>
+                </div>
+            </div>
+
+            <div id="giftCardDiv">
+                <div id="laserModalButton">
+                    <div id="laserModalButtonText">Pay with Gift Card</div>
+                </div>
+                <input type="text" name="downloadFileName" placeholder="Enter Code" id="laserGiftCardInput"
+                       class="inputTxt">
+            </div>
+            <div id="laserModalAmountDiv">
+                <div id="amountLabel">Amount:</div>
+                <div id="amountNumber">10 €</div>
+            </div>
+        </div>
+        <div>
+            <p id="orderFormInfo"></p>
+        </div>
+    </div>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<script type="text/javascript">
+    document.getElementById("pictureBox").setAttribute("width", "400");
+    document.getElementById("pictureBox").setAttribute("height", "400");
+
+    if (!(window.File && window.FileReader && window.FileList && window.Blob)) {
+        document.write('<i>File API not supported by this browser.</i>');
+    }
+</script>
+<script type="text/javascript" src="js/api/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="ajaxUpload.min.js"></script>
+<script type="text/javascript" src="js/create.min.js"></script>
+<script type="text/javascript" src="js/api/libs.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="pictureanalysis/vectorization.js"></script>
+<script type="text/javascript" src="pictureanalysis/jsfeat.min.js"></script>
+<script src="https://checkout.stripe.com/checkout.js"></script>
+</body>
+</html>
