@@ -2,7 +2,7 @@
 
 Digi Dali stands for Digital [Dali](https://en.wikipedia.org/wiki/Salvador_Dal%C3%AD). It is a Lego robot with a laser that can englave (laser engrave) your images onto a piece of wood. 
 
-Website: https://www.digidali.co/
+Website: https://digidali.julianbrendl.com
 
 Version 2: https://www.youtube.com/watch?v=Rzt6_1OoRhA
 
